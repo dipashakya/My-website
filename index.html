@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dipa Shakya Shrestha — Architect & Academic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --clay: #C8B89A;
+    --clay-light: #F0EAE0;
+    --ink: #1C1A16;
+    --ink-mid: #4A4640;
+    --ink-soft: #7A7570;
+    --rule: #D6CFC4;
+    --bg: #FAFAF7;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(250,250,247,0.92); backdrop-filter: blur(8px); border-bottom: 0.5px solid var(--rule); }
+  .nav-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; letter-spacing: 0.02em; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  section { padding: 6rem 3rem; max-width: 860px; margin: 0 auto; }
+  #hero { padding-top: 10rem; padding-bottom: 5rem; border-bottom: 0.5px solid var(--rule); }
+  .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 2rem; height: 0.5px; background: var(--clay); }
+  h1 { font-family: var(--serif); font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 2rem; }
+  h1 em { font-style: italic; color: var(--ink-mid); }
+  .hero-bio { max-width: 520px; font-size: 1rem; color: var(--ink-mid); line-height: 1.8; margin-bottom: 2.5rem; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border: 0.5px solid var(--clay); color: var(--ink-mid); border-radius: 0; }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--clay); display: flex; align-items: center; gap: 0.75rem; margin-bottom: 3rem; }
+  .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--rule); }
+  h2 { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--ink); margin-bottom: 2rem; line-height: 1.2; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .two-col p { color: var(--ink-mid); line-height: 1.85; font-size: 0.92rem; }
+  .two-col p + p { margin-top: 1rem; }
+  .focus-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+  .focus-card { padding: 1.5rem; border: 0.5px solid var(--rule); background: #fff; }
+  .focus-card-num { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: var(--clay); line-height: 1; margin-bottom: 0.75rem; }
+  .focus-card-title { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 0.4rem; }
+  .focus-card p { font-size: 0.8rem; color: var(--ink-soft); line-height: 1.6; }
+  .experience-list { display: flex; flex-direction: column; gap: 0; }
+  .exp-item { display: grid; grid-template-columns: 7rem 1fr; gap: 2rem; padding: 1.75rem 0; border-bottom: 0.5px solid var(--rule); }
+  .exp-item:first-child { border-top: 0.5px solid var(--rule); }
+  .exp-year { font-size: 0.8rem; color: var(--ink-soft); padding-top: 0.15rem; }
+  .exp-role { font-weight: 500; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .exp-org { font-size: 0.85rem; color: var(--clay); margin-bottom: 0.4rem; }
+  .exp-desc { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.6; }
+  .project-grid { display: flex; flex-direction: column; gap: 0; }
+  .project-item { display: grid; grid-template-columns: 7rem 1fr auto; gap: 2rem; align-items: baseline; padding: 1.5rem 0; border-bottom: 0.5px solid var(--rule); }
+  .project-item:first-child { border-top: 0.5px solid var(--rule); }
+  .project-year { font-size: 0.8rem; color: var(--ink-soft); }
+  .project-name { font-size: 0.92rem; font-weight: 500; color: var(--ink); }
+  .project-name span { display: block; font-size: 0.8rem; font-weight: 400; color: var(--ink-soft); margin-top: 0.2rem; }
+  .project-role { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mid); white-space: nowrap; }
+  .pub-card { padding: 2rem; border: 0.5px solid var(--clay); background: var(--clay-light); margin-bottom: 1rem; }
+  .pub-venue { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--clay); margin-bottom: 0.75rem; }
+  .pub-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--ink); line-height: 1.4; margin-bottom: 0.75rem; }
+  .pub-authors { font-size: 0.8rem; color: var(--ink-soft); }
+  .pub-abstract { font-size: 0.82rem; color: var(--ink-mid); line-height: 1.7; margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid var(--clay); }
+  .edu-list { display: flex; flex-direction: column; gap: 0; }
+  .edu-item { display: grid; grid-template-columns: 4rem 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 0.5px solid var(--rule); }
+  .edu-item:first-child { border-top: 0.5px solid var(--rule); }
+  .edu-year { font-size: 0.8rem; color: var(--ink-soft); }
+  .edu-degree { font-weight: 500; font-size: 0.92rem; color: var(--ink); margin-bottom: 0.2rem; }
+  .edu-inst { font-size: 0.82rem; color: var(--ink-soft); }
+  #contact { border-top: 0.5px solid var(--rule); display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-headline { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 300; line-height: 1.2; color: var(--ink); }
+  .contact-details { display: flex; flex-direction: column; gap: 0.5rem; }
+  .contact-row { display: flex; gap: 1.5rem; align-items: center; font-size: 0.85rem; }
+  .contact-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); width: 4rem; flex-shrink: 0; }
+  .contact-value { color: var(--ink-mid); }
+  .contact-value a { color: var(--clay); text-decoration: none; }
+  .contact-value a:hover { text-decoration: underline; }
+  .memberships { display: flex; gap: 1rem; flex-wrap: wrap; padding-top: 1.5rem; border-top: 0.5px solid var(--rule); margin-top: 0.5rem; }
+  .member-badge { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.85rem; border: 0.5px solid var(--rule); color: var(--ink-soft); }
+  footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--ink-soft); border-top: 0.5px solid var(--rule); letter-spacing: 0.06em; }
+  @media (max-width: 640px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.25rem; }
+    section { padding: 4rem 1.5rem; }
+    .two-col, .focus-cards { grid-template-columns: 1fr; }
+    .exp-item, .project-item, .edu-item { grid-template-columns: 1fr; gap: 0.25rem; }
+    .project-item { grid-template-columns: 1fr; }
+    .project-role { margin-top: 0.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-name">Dipa Shakya Shrestha</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="hero">
+  <div class="hero-eyebrow">Architect &amp; Academic</div>
+  <h1>Dipa Shakya<br><em>Shrestha</em></h1>
+  <p class="hero-bio">Lecturer at the Department of Architecture, Institute of Engineering, Pulchowk Campus, Tribhuvan University — bridging rigorous scholarship with decades of architectural practice across Nepal and international projects.</p>
+  <div class="hero-tags">
+    <span class="tag">Heritage Conservation</span>
+    <span class="tag">Urban Planning</span>
+    <span class="tag">Architectural Design</span>
+    <span class="tag">Craft &amp; Tourism</span>
+    <span class="tag">Patan, Nepal</span>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-label">About</div>
+  <div class="two-col">
+    <div>
+      <p>With over two decades spanning architecture, urban planning, and academic research, I bring both the discipline of a practitioner and the rigor of a scholar to questions of heritage, place, and the built environment.</p>
+      <p>Rooted in Patan — one of the Kathmandu Valley's richest historic urban cores — my work is shaped by a deep engagement with Newar craft traditions, living heritage, and the urgent demands of post-earthquake reconstruction.</p>
+    </div>
+    <div>
+      <p>I have served as Deputy Head of the Architecture Department at Pulchowk Campus, co-ordinated the MSc in Urban Planning programme, and led multidisciplinary design projects across Nepal, Japan, China, Spain, and Italy.</p>
+      <p>My research asks how traditional craft knowledge — embodied, tacit, and community-held — can be systematically integrated into contemporary conservation practice.</p>
+    </div>
+  </div>
+  <div class="focus-cards">
+    <div class="focus-card"><div class="focus-card-num">01</div><div class="focus-card-title">Heritage Conservation</div><p>Preserving intangible craft heritage through community participation and sustainable practice in historic urban cores.</p></div>
+    <div class="focus-card"><div class="focus-card-num">02</div><div class="focus-card-title">Urban Planning</div><p>Master's-level expertise in urban systems, spatial governance, and equitable development in Nepalese cities.</p></div>
+    <div class="focus-card"><div class="focus-card-num">03</div><div class="focus-card-title">Architectural Practice</div><p>Project leadership on international expositions, institutional buildings, and interior design across multiple countries.</p></div>
+    <div class="focus-card"><div class="focus-card-num">04</div><div class="focus-card-title">Craft &amp; Tourism</div><p>Exploring how local craft conservation can anchor cultural tourism and drive sustainable local economic development.</p></div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-label">Academic Experience</div>
+  <div class="experience-list">
+    <div class="exp-item"><div class="exp-year">2020 – 2023</div><div><div class="exp-role">Deputy Head of Department &amp; Lecturer</div><div class="exp-org">Department of Architecture, T.U. IOE Pulchowk Campus</div><div class="exp-desc">Led departmental administration while maintaining an active teaching and supervisory role in architectural design and heritage studies.</div></div></div>
+    <div class="exp-item"><div class="exp-year">2018 – 2020</div><div><div class="exp-role">Instructor Committee Member</div><div class="exp-org">Department of Architecture, T.U. IOE Pulchowk Campus</div><div class="exp-desc">Contributed to curriculum development and instructional quality assurance for undergraduate architecture programmes.</div></div></div>
+    <div class="exp-item"><div class="exp-year">2016 – 2018</div><div><div class="exp-role">Programme Coordinator</div><div class="exp-org">MSc Urban Planning, T.U. IOE Pulchowk Campus</div><div class="exp-desc">Coordinated the postgraduate urban planning programme, overseeing admissions, curriculum delivery, and student mentorship.</div></div></div>
+    <div class="exp-item"><div class="exp-year">2014</div><div><div class="exp-role">External Supervisor / Expert</div><div class="exp-org">University Grants Commission, Sano Thimi</div><div class="exp-desc">Engaged as a subject-matter expert for UGC-supervised academic and construction works.</div></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-label">Selected Design Projects</div>
+  <div class="project-grid">
+    <div class="project-item"><div class="project-year">2017 – 2021</div><div class="project-name">International Buddhist Conference &amp; Meditation Hall<span>LDT, Lumbini, Rupandehi — Shrestha-DCON-Shree RS JV</span></div><div class="project-role">Chief Architect</div></div>
+    <div class="project-item"><div class="project-year">2015 – 2016</div><div class="project-name">IWMI Office, Pulchowk<span>International Water Management Institute — Nepal Engineering Design Consultant</span></div><div class="project-role">Interior Architect</div></div>
+    <div class="project-item"><div class="project-year">2014 – 2015</div><div class="project-name">UGC Institutional Building, Sano Thimi<span>University Grants Commission, Bhaktapur</span></div><div class="project-role">Interior Architect Engineer</div></div>
+    <div class="project-item"><div class="project-year">2009 – 2010</div><div class="project-name">Asian Paints Nepal Headquarters<span>Balkumari, Lalitpur — Nepal Engineering Design Consultant</span></div><div class="project-role">Architect</div></div>
+    <div class="project-item"><div class="project-year">2007</div><div class="project-name">Zaragoza 2008 — Water Sustainable Management Pavilion<span>Spain — Shrestha Crafts Enterprises</span></div><div class="project-role">Architect</div></div>
+    <div class="project-item"><div class="project-year">2002 – 2004</div><div class="project-name">Pacific Flora Expo Japan 2004<span>Space Design Consultant</span></div><div class="project-role">Project Manager</div></div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="section-label">Research &amp; Publication</div>
+  <h2>Craft Conservation and<br>Tourism Development</h2>
+  <div class="pub-card">
+    <div class="pub-venue">Proceedings of the 11th IOE Graduate Conference · Peer Reviewed · Vol. 11 · 2022</div>
+    <div class="pub-title">Craft Conservation and Tourism Development (A case in Lalitpur Core, Patan)</div>
+    <div class="pub-authors">Dipa Shakya &amp; Sudarshan Raj Tiwari — Department of Architecture, T.U. IOE Pulchowk Campus</div>
+    <div class="pub-abstract">This research explores the need for craft conservation in the Lalitpur core — a district characterised by historic urban cultural heritage and distinguished craft heritage — examining how tangible and intangible heritage as human creativity, craft skill, and festivals can be strengthened as a 'Craft Town'. Through a survey of urban craft potential areas including Bhimsenbahal, Chunamhal Sundhara, Haugal Tichhu Gully, and Patan Durbar Square, the study analyses the local needs of people and concludes that conservation, public participation, and tourism together can ultimately sustain local development by making Lalitpur a model craft town.</div>
+  </div>
+  <div style="margin-top:2.5rem;">
+    <div class="section-label">International Engagements</div>
+    <div class="experience-list">
+      <div class="exp-item"><div class="exp-year">2019</div><div><div class="exp-role">Jaipur Heritage Workshop Tour — ARCASIA Teachers Training</div><div class="exp-org">India</div></div></div>
+      <div class="exp-item"><div class="exp-year">2018</div><div><div class="exp-role">International Workshop: Digital Pedagogy for Architectural Education &amp; Practice</div><div class="exp-org">Italy – Asia</div></div></div>
+      <div class="exp-item"><div class="exp-year">2017</div><div><div class="exp-role">Drawing Preparation Initiative for Safer Reconstruction, Chautara</div><div class="exp-org">UNDP Comprehensive Disaster Risk Management Programme</div></div></div>
+      <div class="exp-item"><div class="exp-year">2017</div><div><div class="exp-role">China (Sichuan)–Nepal Cultural Heritage Restoration Workshop</div><div class="exp-org">Bilateral exchange</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-label">Education</div>
+  <div class="edu-list">
+    <div class="edu-item"><div class="edu-year">2014</div><div><div class="edu-degree">Master in Urban Planning</div><div class="edu-inst">Institute of Engineering, Pulchowk Campus, Tribhuvan University</div></div></div>
+    <div class="edu-item"><div class="edu-year">2001</div><div><div class="edu-degree">Bachelor of Architecture</div><div class="edu-inst">Nepal Engineering College, Tribhuvan University</div></div></div>
+    <div class="edu-item"><div class="edu-year">1994</div><div><div class="edu-degree">Diploma in Engineering</div><div class="edu-inst">Institute of Engineering, Pulchowk Campus, Tribhuvan University</div></div></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <div class="contact-headline">Open to research<br>collaborations &amp; academic exchange.</div>
+  <div class="contact-details">
+    <div class="contact-row"><span class="contact-label">Email</span><span class="contact-value"><a href="mailto:dipa.shakya@pcampus.edu.np">dipa.shakya@pcampus.edu.np</a></span></div>
+    <div class="contact-row"><span class="contact-label">Phone</span><span class="contact-value">+977 9841275986</span></div>
+    <div class="contact-row"><span class="contact-label">Location</span><span class="contact-value">Hakha Tole, Ward 11, Patan, Lalitpur, Nepal</span></div>
+    <div class="contact-row"><span class="contact-label">Institution</span><span class="contact-value">Department of Architecture, IOE Pulchowk Campus, T.U.</span></div>
+  </div>
+  <div class="memberships">
+    <span class="member-badge">Life Member — NEC</span>
+    <span class="member-badge">Life Member — SONA</span>
+  </div>
+</section>
+
+<footer>&copy; 2026 Dipa Shakya Shrestha &nbsp;·&nbsp; Architect &amp; Academic &nbsp;·&nbsp; Patan, Nepal</footer>
+
+</body>
+</html>
